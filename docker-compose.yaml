@@ -1,0 +1,20 @@
+services:
+  db:
+    image: mysql
+    container_name: "ResumeX_v2_db"
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "password"
+      MYSQL_DATABASE: "resumeX_v2"
+    volumes:
+      - resumeX_v2_db:/var/lib/mysql
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8080:8080"
+
+volumes:
+  resumeX_v2_db:
