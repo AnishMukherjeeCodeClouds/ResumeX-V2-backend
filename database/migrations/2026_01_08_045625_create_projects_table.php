@@ -17,12 +17,12 @@ return new class extends Migration
             $table->string('name');
             $table->string('description');
             $table->json('technologies');
-            $table->string('liveLink')->nullable();
-            $table->string('githubLink')->nullable();
-            $table->date('startDate');
-            $table->date('endDate')->nullable();
+            $table->string('live_link')->nullable();
+            $table->string('github_link')->nullable();
+            $table->date('start_date');
+            $table->date('end_date')->nullable();
 
-            $table->foreignUuid('resumeId')->references('id')->on('resumes')->onDelete('cascade');
+            $table->foreignUuid('resume_id')->references('id')->on('resumes')->onDelete('cascade');
         });
     }
 

@@ -16,11 +16,11 @@ class Project extends Model
         'name',
         'description',
         'technologies',
-        'liveLink',
-        'githubLink',
-        'startDate',
-        'endDate',
-        'resumeId',
+        'live_link',
+        'github_link',
+        'start_date',
+        'end_date',
+        'resume_id',
     ];
 
     protected function casts(): array

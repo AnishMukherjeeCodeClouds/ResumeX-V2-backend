@@ -19,7 +19,7 @@ return new class extends Migration
             $table->date('date');
             $table->string('url');
 
-            $table->foreignUuid('resumeId')->references('id')->on('resumes')->onDelete('cascade');
+            $table->foreignUuid('resume_id')->references('id')->on('resumes')->onDelete('cascade');
         });
     }
 

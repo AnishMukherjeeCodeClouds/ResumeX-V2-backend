@@ -16,6 +16,11 @@ class Socials extends Model
         'linkedIn',
         'github',
         'portfolio',
-        'resumeId',
+        'resume_id',
     ];
+
+    public function resume()
+    {
+        return $this->belongsTo(Resume::class);
+    }
 }

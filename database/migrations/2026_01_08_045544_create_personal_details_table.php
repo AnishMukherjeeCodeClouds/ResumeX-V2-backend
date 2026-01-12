@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->string('location')->nullable();
 
-            $table->foreignUuid('resumeId')->references('id')->on('resumes')->onDelete('cascade');
+            $table->foreignUuid('resume_id')->unique()->references('id')->on('resumes')->onDelete('cascade');
         });
     }
 

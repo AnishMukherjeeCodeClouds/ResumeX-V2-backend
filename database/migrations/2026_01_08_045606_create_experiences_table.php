@@ -17,11 +17,11 @@ return new class extends Migration
             $table->string('organization');
             $table->string('position');
             $table->string('description');
-            $table->date('startDate');
-            $table->date('endDate')->nullable();
-            $table->boolean('isCurrent')->default(false);
+            $table->date('start_date');
+            $table->date('end_date')->nullable();
+            $table->boolean('is_current')->default(false);
 
-            $table->foreignUuid('resumeId')->references('id')->on('resumes')->onDelete('cascade');
+            $table->foreignUuid('resume_id')->references('id')->on('resumes')->onDelete('cascade');
         });
     }
 

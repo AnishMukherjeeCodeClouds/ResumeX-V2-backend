@@ -18,10 +18,10 @@ return new class extends Migration
             $table->string('summary');
             $table->json('skills');
             $table->json('languages');
-            $table->string('accentColor');
+            $table->string('accent_color');
             $table->string('template');
 
-            $table->foreignUuid('userId')->references('id')->on('users')->onDelete('cascade');
+            $table->foreignUuid('user_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->timestampsTz();
         });

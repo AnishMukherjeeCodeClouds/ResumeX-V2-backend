@@ -18,6 +18,11 @@ class PersonalDetails extends Model
         'email',
         'phone',
         'location',
-        'resumeId',
+        'resume_id',
     ];
+
+    public function resume()
+    {
+        return $this->belongsTo(Resume::class);
+    }
 }

@@ -16,9 +16,9 @@ class Experience extends Model
         'organization',
         'position',
         'description',
-        'startDate',
-        'endDate',
-        'isCurrent',
-        'resumeId',
+        'start_date',
+        'end_date',
+        'is_current',
+        'resume_id',
     ];
 }

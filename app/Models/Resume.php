@@ -15,9 +15,8 @@ class Resume extends Model
         'summary',
         'skills',
         'languages',
-        'accentColor',
+        'accent_color',
         'template',
-        'userId',
     ];
 
     protected function casts(): array
@@ -33,33 +32,38 @@ class Resume extends Model
         'languages' => '[]',
     ];
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function personal_details()
     {
-        return $this->hasOne(PersonalDetails::class, 'resumeId', 'id');
+        return $this->hasOne(PersonalDetails::class);
     }
 
     public function socials()
     {
-        return $this->hasOne(Socials::class, 'resumeId', 'id');
+        return $this->hasOne(Socials::class);
     }
 
     public function experiences()
     {
-        return $this->hasMany(Experience::class, 'resumeId', 'id');
+        return $this->hasMany(Experience::class);
     }
 
     public function educations()
     {
-        return $this->hasMany(Education::class, 'resumeId', 'id');
+        return $this->hasMany(Education::class);
     }
 
     public function projects()
     {
-        return $this->hasMany(Project::class, 'resumeId', 'id');
+        return $this->hasMany(Project::class);
     }
 
     public function certifications()
     {
-        return $this->hasMany(Certification::class, 'resumeId', 'id');
+        return $this->hasMany(Certification::class);
     }
 }

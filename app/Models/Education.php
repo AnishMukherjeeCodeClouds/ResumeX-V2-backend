@@ -17,8 +17,8 @@ class Education extends Model
         'degree',
         'field',
         'grade',
-        'startDate',
-        'endDate',
-        'resumeId',
+        'start_date',
+        'end_date',
+        'resume_id',
     ];
 }

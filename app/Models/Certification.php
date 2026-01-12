@@ -17,6 +17,11 @@ class Certification extends Model
         'issuer',
         'date',
         'url',
-        'resumeId',
+        'resume_id',
     ];
+
+    public function resume()
+    {
+        return $this->belongsTo(Resume::class);
+    }
 }

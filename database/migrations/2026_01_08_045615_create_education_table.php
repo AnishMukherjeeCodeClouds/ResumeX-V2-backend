@@ -18,10 +18,10 @@ return new class extends Migration
             $table->string('degree');
             $table->string('field')->nullable();
             $table->float('grade')->nullable();
-            $table->date('startDate');
-            $table->date('endDate')->nullable();
+            $table->date('start_date');
+            $table->date('end_date')->nullable();
 
-            $table->foreignUuid('resumeId')->references('id')->on('resumes')->onDelete('cascade');
+            $table->foreignUuid('resume_id')->references('id')->on('resumes')->onDelete('cascade');
         });
     }
 
