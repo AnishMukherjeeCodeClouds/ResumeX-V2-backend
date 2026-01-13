@@ -6,7 +6,7 @@ use App\ResumeTemplateEnum;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class CreateResumeRequest extends FormRequest
+class UpdateResumeRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -45,6 +45,7 @@ class CreateResumeRequest extends FormRequest
             'socials.portfolio' => ['nullable', 'url'],
 
             'experiences' => ['array', 'max:'.$MAX_EXPERIENCES],
+            'experiences.*.id' => ['nullable', 'uuid'],
             'experiences.*.organization' => ['required', 'string', 'min:1'],
             'experiences.*.description' => ['required', 'string', 'min:1'],
             'experiences.*.position' => ['required', 'string', 'min:1'],
@@ -52,6 +53,7 @@ class CreateResumeRequest extends FormRequest
             'experiences.*.endDate' => ['nullable', 'date'],
 
             'educations' => ['array', 'max:'.$MAX_EDUCATIONS],
+            'educations.*.id' => ['nullable', 'uuid'],
             'educations.*.institution' => ['required', 'string', 'min:1'],
             'educations.*.degree' => ['required', 'string', 'min:1'],
             'educations.*.field' => ['nullable', 'string'],
@@ -60,6 +62,7 @@ class CreateResumeRequest extends FormRequest
             'educations.*.grade' => ['nullable', 'decimal:1'],
 
             'projects' => ['array', 'max:'.$MAX_PROJECTS],
+            'projects.*.id' => ['nullable', 'uuid'],
             'projects.*.name' => ['required', 'string', 'min:1'],
             'projects.*.description' => ['required', 'string', 'min:1'],
             'projects.*.technologies' => [
@@ -79,17 +82,11 @@ class CreateResumeRequest extends FormRequest
             'projects.*.endDate' => ['nullable', 'date'],
 
             'certifications' => ['array', 'max:'.$MAX_CERTIFICATIONS],
+            'certifications.*.id' => ['nullable', 'uuid'],
             'certifications.*.title' => ['required', 'string', 'min:1'],
             'certifications.*.issuer' => ['required', 'string', 'min:1'],
             'certifications.*.date' => ['required', 'date'],
             'certifications.*.url' => ['required', 'url'],
         ];
     }
-
-    // public function messages()
-    // {
-    //     return [
-    //         'title.required' => 'Title is required',
-    //     ];
-    // }
 }
