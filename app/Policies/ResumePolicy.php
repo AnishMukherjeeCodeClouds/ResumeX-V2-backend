@@ -8,17 +8,11 @@ use Illuminate\Auth\Access\Response;
 
 class ResumePolicy
 {
-    /**
-     * Determine whether the user can view any models.
-     */
     public function viewAny(User $user): bool
     {
         return false;
     }
 
-    /**
-     * Determine whether the user can view the model.
-     */
     public function view(User $user, Resume $resume): Response
     {
         return $user->id === $resume->user_id
@@ -44,12 +38,11 @@ class ResumePolicy
                 : Response::denyWithStatus(403);
     }
 
-    /**
-     * Determine whether the user can delete the model.
-     */
-    public function delete(User $user, Resume $resume): bool
+    public function delete(User $user, Resume $resume): Response
     {
-        return false;
+        return $user->id === $resume->user_id
+                ? Response::allow()
+                : Response::denyWithStatus(403);
     }
 
     /**

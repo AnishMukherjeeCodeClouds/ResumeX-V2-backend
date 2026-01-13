@@ -11,9 +11,11 @@ Route::middleware([AcceptJsonResponse::class])->group(function () {
         Route::get('/{resume}/load', [ResumeController::class, 'loadResume']);
         Route::post('/create', [ResumeController::class, 'createResume']);
         Route::put('/{resume}/update', [ResumeController::class, 'updateResume']);
+        Route::delete('/{resume}/delete', [ResumeController::class, 'deleteResume']);
     });
     Route::prefix('/auth')->group(function () {
         Route::post('/signup', [AuthController::class, 'signup']);
         Route::post('/login', [AuthController::class, 'login']);
+        Route::delete('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
     });
 });

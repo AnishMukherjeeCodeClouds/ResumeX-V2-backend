@@ -165,4 +165,13 @@ class ResumeController extends Controller
             return $resume->load(['personal_details', 'socials', 'experiences', 'educations', 'projects', 'certifications']);
         });
     }
+
+    public function deleteResume(Resume $resume)
+    {
+        if (! Gate::allows('delete', $resume)) {
+            abort(403);
+        }
+
+        $resume->delete();
+    }
 }
