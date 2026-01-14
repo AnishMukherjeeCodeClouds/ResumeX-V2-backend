@@ -13,7 +13,6 @@ class AuthController extends Controller
     public function signup(CreateUserRequest $request)
     {
         $validated = $request->validated();
-        logger($validated);
 
         $user = User::create($validated);
 
